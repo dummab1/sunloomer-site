@@ -1,0 +1,19 @@
+# macOS / Windows cruft
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editor folders / swap files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# Source / planning notes (not for publishing)
+Web site Proposal.txt
+
+# Local environment
+.env
+.env.local

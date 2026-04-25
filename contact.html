@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Sunloomer</title>
+  <meta name="description" content="Tell Sunloomer what device or system you want integrated with Control4. Based on the Treasure Coast, serving South Florida." />
+  <meta name="theme-color" content="#F6F2EA" />
+  <link rel="icon" type="image/svg+xml" href="assets/sunloomer-appicon-light.svg" />
+  <link rel="apple-touch-icon" href="assets/sunloomer-appicon-dark.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Sunloomer home">
+        <svg class="brand-mark" viewBox="0 0 120 56" aria-hidden="true">
+          <circle cx="32" cy="28" r="22" stroke="#1A1917" stroke-width="2.4" fill="none" />
+          <circle cx="68" cy="28" r="22" stroke="#4A8A85" stroke-width="2.4" fill="none" />
+        </svg>
+        <span>Sunloomer</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Tell us what you want integrated with Control4.</h1>
+      <p class="lead">A short note is enough &mdash; the device, the system, the situation. We&rsquo;ll respond personally and let you know whether it&rsquo;s a fit for a custom Sunloomer driver.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT GRID -->
+  <div class="container contact-grid">
+
+    <aside class="contact-info">
+      <div class="info-block">
+        <h3>Email</h3>
+        <p><a href="mailto:hello@sunloomer.com">hello@sunloomer.com</a></p>
+      </div>
+      <div class="info-block">
+        <h3>Service Area</h3>
+        <p>Treasure Coast &amp; South Florida</p>
+      </div>
+      <div class="info-block">
+        <h3>Working With</h3>
+        <p>Installers, integrators, and homeowners with specialty driver needs.</p>
+      </div>
+      <div class="info-block">
+        <h3>Note</h3>
+        <p style="font-family: var(--sans); font-size: .98rem; color: var(--ink-soft); line-height: 1.6;">
+          Sunloomer takes on specialty driver opportunities and early-stage discussions
+          with installers and homeowners. Not every request is a fit &mdash; but every one gets a thoughtful reply.
+        </p>
+      </div>
+    </aside>
+
+    <!-- mailto form -->
+    <form id="contact-form" onsubmit="return sendMail(event)" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="company">Company / Installer</label>
+          <input id="company" name="company" type="text" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label for="device">Device or System</label>
+          <input id="device" name="device" type="text" placeholder="e.g. boat lift, e-shower, gate controller" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required placeholder="Tell us what you'd like integrated, and any context that helps."></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          Send message
+          <svg class="arrow" width="14" height="10" viewBox="0 0 14 10" aria-hidden="true">
+            <path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <p class="form-note">Your message will open in your default email app, addressed to <a href="mailto:hello@sunloomer.com">hello@sunloomer.com</a>.</p>
+      </div>
+    </form>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <svg class="footer-mark" viewBox="0 0 120 56" aria-hidden="true">
+          <circle cx="32" cy="28" r="22" stroke="#1A1917" stroke-width="2.2" fill="none" />
+          <circle cx="68" cy="28" r="22" stroke="#4A8A85" stroke-width="2.2" fill="none" />
+        </svg>
+        <p>&copy; <span id="year">2026</span> Sunloomer &middot; Treasure Coast, Florida</p>
+      </div>
+      <p><a href="mailto:hello@sunloomer.com">hello@sunloomer.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function sendMail(e) {
+      e.preventDefault();
+      const f = e.target;
+      const name    = f.name.value.trim();
+      const email   = f.email.value.trim();
+      const company = f.company.value.trim();
+      const device  = f.device.value.trim();
+      const message = f.message.value.trim();
+
+      if (!name || !email || !message) {
+        alert('Please fill in your name, email, and a short message.');
+        return false;
+      }
+
+      const subject = `Sunloomer inquiry — ${device || 'general'}`;
+      const body =
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Company / Installer: ${company || '—'}\n` +
+        `Device or System: ${device || '—'}\n\n` +
+        `${message}\n`;
+
+      const href = `mailto:hello@sunloomer.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = href;
+      return false;
+    }
+  </script>
+</body>
+</html>
